@@ -1,0 +1,23 @@
+{
+  "total_transactions": 5000,
+  "fraud_transactions": 250,
+  "fraud_rate_percent": 5.0,
+  "average_amount": 56.95,
+  "best_model": "Random Forest",
+  "model_metrics": {
+    "Logistic Regression": {
+      "accuracy": 0.845,
+      "precision": 0.228,
+      "recall": 0.88,
+      "f1": 0.3621,
+      "roc_auc": 0.9287
+    },
+    "Random Forest": {
+      "accuracy": 0.954,
+      "precision": 0.5556,
+      "recall": 0.4,
+      "f1": 0.4651,
+      "roc_auc": 0.9301
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fraud Detection Intelligence</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+<div>
+<h1>Credit Card Fraud Detection</h1>
+<p>Machine Learning Risk Intelligence Dashboard</p>
+</div>
+<span class="badge">ML • FRAUD ANALYTICS</span>
+</header>
+<main>
+<section class="cards">
+<div class="card"><span>Total Transactions</span><strong>{{ stats.transactions }}</strong></div>
+<div class="card"><span>Fraud Cases</span><strong>{{ stats.fraud }}</strong></div>
+<div class="card"><span>Fraud Rate</span><strong>{{ stats.rate }}%</strong></div>
+<div class="card"><span>Avg. Amount</span><strong>₹{{ stats.avg_amount }}</strong></div>
+</section>
+
+<section class="panel">
+<h2>Transaction Risk Prediction</h2>
+<p class="muted">Enter transaction features to estimate fraud probability.</p>
+<form method="POST" action="/predict" class="grid">
+<label>Amount<input name="Amount" type="number" step="0.01" value="250" required></label>
+<label>Hour<input name="Hour" type="number" min="0" max="23" value="14" required></label>
+<label>Time Since Last Transaction (min)<input name="TimeSinceLastTransaction" type="number" min="0" value="20" required></label>
+<label>V1<input name="V1" type="number" step="0.01" value="0.1" required></label>
+<label>V2<input name="V2" type="number" step="0.01" value="0.1" required></label>
+<label>V3<input name="V3" type="number" step="0.01" value="0.1" required></label>
+<label>V4<input name="V4" type="number" step="0.01" value="0.1" required></label>
+<label>V5<input name="V5" type="number" step="0.01" value="0.1" required></label>
+<label>Merchant Risk Score<input name="MerchantRiskScore" type="number" min="0" max="10" value="2" required></label>
+<label>Device Transactions<input name="DeviceTransactions" type="number" min="1" max="20" value="3" required></label>
+<button type="submit">Analyze Transaction Risk</button>
+</form>
+{% if prediction %}<div class="result">{{ prediction }}</div>{% endif %}
+</section>
+<footer>Portfolio project • Synthetic data • Fraud probability is an analytical estimate, not a final financial decision.</footer>
+</main>
+</body>
+</html>
